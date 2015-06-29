@@ -1,0 +1,144 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dev.jaredkent.cheatercheater.SolveFragment"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <LinearLayout
+        android:id="@+id/input"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/bigbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextbox"
+            android:orientation="vertical"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find words from Scrabble hand"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                />
+
+            <EditText
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/letters"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:hint="Enter hand here"
+                android:paddingStart="5dp"
+                android:singleLine="true"
+                android:maxLength="7"/>
+
+            <EditText
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/extraLetters"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/letters"
+                android:layout_marginTop="15dp"
+                android:hint="Add letter to play on here (optional)"
+                android:paddingStart="5dp"
+                android:textAlignment="center"
+                android:singleLine="true"
+                android:layout_marginBottom="15dp"
+                android:maxLength="1"/>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/searchbox"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Solve!"
+                android:onClick="solve"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/solvedView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/topscore"
+                android:text="Your best word is:"
+                android:textSize="35dp"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                />
+
+            <LinearLayout
+                android:layout_below="@+id/topscore"
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/bestword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/gold2"
+                    android:textSize="40dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@id/score"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/edittextbox"
+                android:layout_marginBottom="75dp">
+
+                <ListView
+                    android:id="@+id/scoreList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    >
+                </ListView>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/searchbox"
+                android:text="New solution"
+                android:onClick="back"
+                android:clickable="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

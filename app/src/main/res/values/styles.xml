@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="tabStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">#F6D179</item>
+    </style>
+
+</resources>
