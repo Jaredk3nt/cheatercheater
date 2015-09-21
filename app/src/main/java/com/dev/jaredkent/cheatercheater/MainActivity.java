@@ -1,5 +1,7 @@
 package com.dev.jaredkent.cheatercheater;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.inputmethod.InputMethodManager;
@@ -146,7 +149,23 @@ public class MainActivity extends FragmentActivity {
                 }
                 View input = (View)findViewById(R.id.bigbox);
 
+
+
+
+                // get the center for the clipping circle
+                int cx = solvedView.getWidth() / 2;
+                int cy = solvedView.getHeight() / 2;
+
+                // get the final radius for the clipping circle
+                int finalRadius = Math.max(solvedView.getWidth(), solvedView.getHeight());
+
+                // create the animator for this view (the start radius is zero)
+                Animator anim =
+                        ViewAnimationUtils.createCircularReveal(solvedView, cx, cy, 0, finalRadius);
+
+                // make the view visible and start the animation
                 solvedView.setVisibility(View.VISIBLE);
+                anim.start();
                 input.setVisibility(View.GONE);
             }
 
@@ -218,6 +237,21 @@ public class MainActivity extends FragmentActivity {
             }
 
             View wordFound = (View) findViewById(R.id.wordFound);
+
+            // get the center for the clipping circle
+            int cx = wordFound.getWidth() / 2;
+            int cy = wordFound.getHeight() / 2;
+
+            // get the final radius for the clipping circle
+            int finalRadius = Math.max(wordFound.getWidth(), wordFound.getHeight());
+
+            // create the animator for this view (the start radius is zero)
+            Animator anim =
+                    ViewAnimationUtils.createCircularReveal(wordFound, cx, cy, 0, finalRadius);
+
+            // make the view visible and start the animation
+            wordFound.setVisibility(View.VISIBLE);
+            anim.start();
             wordFound.setVisibility(View.VISIBLE);
         }else{
             Toast toast = Toast.makeText(this, "You must input a word!", Toast.LENGTH_LONG);
@@ -258,8 +292,22 @@ public class MainActivity extends FragmentActivity {
         View solvedView = (View)findViewById(R.id.solvedView);
         View input = (View)findViewById(R.id.bigbox);
 
-        solvedView.setVisibility(View.GONE);
+
+// get the center for the clipping circle
+        int cx = input.getWidth() / 2;
+        int cy = input.getHeight() / 2;
+
+// get the final radius for the clipping circle
+        int finalRadius = Math.max(input.getWidth(), input.getHeight());
+
+// create the animator for this view (the start radius is zero)
+        Animator anim =
+                ViewAnimationUtils.createCircularReveal(input, cx, cy, 0, finalRadius);
+
+// make the view visible and start the animation
         input.setVisibility(View.VISIBLE);
+        anim.start();
+        solvedView.setVisibility(View.GONE);
     }
 
 }
